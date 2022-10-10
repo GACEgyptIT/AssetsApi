@@ -1,0 +1,41 @@
+
+ 
+
+   <div class="main-content">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
+    <ngx-alerts></ngx-alerts>
+      <div class="container-fluid">
+        <div class="row" >
+             <div class="card">
+                    <div class="content">
+                      <h4 class="title">Assets Type List</h4>  
+                      <form [formGroup]="astTyForm" (ngSubmit)="onSubmit()">
+                      <button type="button" class="btn btn-primary pe-7s-diskette" (click)="onDBUpdate()"  > DB Update </button> <span style="color: red;">         Assets Types are Hard Coded, Managed only By IT  </span> 
+                       </form>          
+                    </div>
+                      <div class="fresh-datatables">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+
+                        <thead>
+                              <tr>
+                                <th >
+                                 #
+                                </th>
+                                <th >
+                                  Asset Type Name
+                                </th>
+                              </tr>
+                        </thead>
+                        <tbody  >
+                              <tr  *ngFor="let row of AssetTypes; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ row?.asttypName }}</td>
+                              </tr>
+                        </tbody>
+                        </table>
+                      </div>
+             </div>
+        </div>
+      </div>
+</div>
+                        
